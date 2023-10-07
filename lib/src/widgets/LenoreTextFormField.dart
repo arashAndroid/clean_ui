@@ -59,7 +59,7 @@ class LenoreTextFormField extends StatelessWidget {
         textAlign: textAlign,
         decoration: InputDecoration(
           focusColor: Colors.white,
-          contentPadding: EdgeInsets.symmetric(horizontal: label == null ? 0 : 16.0, vertical: 4),
+          contentPadding: EdgeInsets.only(left: label == null ? 0 : 16.0, right: label == null ? 0 : 16.0, top: 24, bottom: 4),
           hintText: hint,
           // hintStyle: Theme.of(context).textTheme.subtitle1,
           labelText: label,

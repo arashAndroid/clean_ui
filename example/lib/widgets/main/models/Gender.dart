@@ -34,11 +34,10 @@ class Gender {
 
   String toJson() => json.encode(toMap());
 
-  factory Gender.fromJson(Map<String, dynamic> source) =>
-      Gender.fromMap(source);
+  factory Gender.fromJson(Map<String, dynamic> source) => Gender.fromMap(source);
 
   @override
-  String toString() => 'Gender(id: $id, title: $title)';
+  String toString() => '$title';
 
   @override
   bool operator ==(Object other) {

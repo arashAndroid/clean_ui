@@ -7,6 +7,7 @@ class LenoreCheckBox extends StatelessWidget {
   final FocusNode? focusNode;
   final String? textString;
   final Widget? leading;
+  final TextStyle? style;
   const LenoreCheckBox({
     Key? key,
     required this.value,
@@ -15,6 +16,7 @@ class LenoreCheckBox extends StatelessWidget {
     this.focusNode,
     this.textString,
     this.leading,
+    this.style,
   }) : super(key: key);
 
   @override
@@ -33,8 +35,10 @@ class LenoreCheckBox extends StatelessWidget {
             ),
           ),
           textString != null
-              ? Container(
-                  child: Text('$textString'),
+              ? Expanded(
+                  child: Container(
+                    child: Text('$textString', maxLines: 2, overflow: TextOverflow.ellipsis, style: style ?? Theme.of(context).textTheme.bodyLarge),
+                  ),
                 )
               : Container(),
           leading ?? Container(),

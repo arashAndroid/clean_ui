@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:clean_ui/clean_ui.dart';
 import 'package:provider/src/provider.dart';
 
+import '../models/Gender.dart';
+
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
 
@@ -110,7 +112,7 @@ class _MainViewState extends State<MainView> {
                 LenoreDropDown(
                   items: context.read<MainViewModel>().genders,
                   value: context.watch<MainViewModel>().genderValue,
-                  onChange: (newValue) => context.read<MainViewModel>().onGenderChange(newValue),
+                  onChange: (Gender newValue) => context.read<MainViewModel>().onGenderChange(newValue),
                   label: 'Gender',
                   icon: Icons.wc_rounded,
                 ),
@@ -176,17 +178,8 @@ class _MainViewState extends State<MainView> {
                   style: Theme.of(context).textTheme.bodyText1,
                 ),
                 SizedBox(height: 16),
-                LenoreNoInternetWidget(
-                  reloadFunction: () {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(
-                        "Refresh Page",
-                        textAlign: TextAlign.center,
-                      ),
-                      duration: Duration(seconds: 2),
-                    ));
-                  },
-                ),
+                LenoreNoInternetWidget(),
+                SizedBox(height: 16),
               ],
             ),
           ),
